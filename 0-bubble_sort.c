@@ -25,11 +25,9 @@ for (i = 0; i < size - 1; i++)
         swap = 1;
         }
     }
-    if (swapped == 0)
+    if (swap == 0)
         break;
 
 print_array(array, size);
 }
-
-
 }
