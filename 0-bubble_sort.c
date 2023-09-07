@@ -15,7 +15,7 @@ if (array == NULL || size < 2)
 for (i = 0; i < size - 1; i++)
 {
     swap = 0;
-    for (j = 0; j < size - i - 1; j++)
+    for (j = 0; j < size - 1; j++)
     {
         if (array[j] > array[j + 1])
         {
@@ -25,10 +25,10 @@ for (i = 0; i < size - 1; i++)
         swap = 1;
         }
     }
-print_array(array, size);
-
     if (swapped == 0)
-            break;
+        break;
+
+print_array(array, size);
 }
 
 
