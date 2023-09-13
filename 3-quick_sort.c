@@ -30,3 +30,22 @@ partition(int *array, int start, int end, size_t size)
 	}
 	return (greater + 1);
 }
+
+void
+sort_recursion(int *array, int start, int end, size_t size)
+{
+	int pivot = 0;
+
+	if (start < end)
+	{
+		pivot = partition(array, start, end, size);
+		sort_recursion(array, start, pivot - 1, size);
+		sort_recursion(array, pivot + 1, end, size);
+	}
+}
+
+void
+quick_sort(int *array, size_t size)
+{
+	sort_recursion(array, 0, size - 1, size);
+}
