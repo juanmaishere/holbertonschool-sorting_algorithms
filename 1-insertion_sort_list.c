@@ -3,47 +3,47 @@
 void
 insertion_sort_list(listint_t **list)
 {
-    listint_t *back;
-    listint_t *current;
-    listint_t *next;
+	listint_t *back;
+	listint_t *current;
+	listint_t *next;
 
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
-    current = (*list)->next;
+	current = (*list)->next;
 
-    while (current != NULL)
-    {
-        back = current->prev;
-        next = current->next;
+	while (current != NULL)
+	{
+		back = current->prev;
+		next = current->next;
 
-        while (back != NULL && back->n > current->n)
-        {
-            
-            if (back->prev != NULL)
-                back->prev->next = current;
-            else
-                *list = current;
+		while (back != NULL && back->n > current->n)
+		{
 
-            if (current->next != NULL)
-                current->next->prev = back;
+			if (back->prev != NULL)
+				back->prev->next = current;
+			else
+				*list = current;
 
-            back->next = current->next;
-            current->prev = back->prev;
-            current->next = back;
-            back->prev = current;
+			if (current->next != NULL)
+				current->next->prev = back;
 
-            if (back->next != NULL)
-                back->next->prev = back;
-            
-            if (current->prev != NULL)
-                current->prev->next = current;
+			back->next = current->next;
+			current->prev = back->prev;
+			current->next = back;
+			back->prev = current;
 
-            print_list(*list);
+			if (back->next != NULL)
+				back->next->prev = back;
 
-            back = current->prev;
-        }
+			if (current->prev != NULL)
+				current->prev->next = current;
 
-        current = next;
-    }
+			print_list(*list);
+
+			back = current->prev;
+		}
+
+		current = next;
+	}
 }
